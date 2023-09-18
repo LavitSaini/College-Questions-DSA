@@ -18,7 +18,7 @@ int main(){
         }
 
         for(int j=0; j<n; j++){
-            printf("%f \t", *(ptr + j));
+            printf("%d \t", *(ptr + j));
         }
     }
 

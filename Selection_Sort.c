@@ -1,30 +1,26 @@
 #include <stdio.h>
 
-void Swap(int *x, int *y)
+void Selection_Sort(int a[], int n)
 {
-    int temp = *x;
-    *x = *y;
-    *y = temp;
-}
-
-void Selection_Sort(int arr[], int n)
-{
-    for (int i = 0; i < n - 1; i++)
+    int i, j, min, temp;
+    for (i = 0; i < n - 1; i++)
     {
-        int min = i;
-        for (int j = i + 1; j < n; j++)
+        min = i;
+        for (j = i + 1; j < n; j++)
         {
-            if(arr[min] > arr[j]){
+            if(a[min] > a[j]){
                 min = j;
             }
         }
 
-        Swap(&arr[i], &arr[min]);
+        int temp = a[i];
+        a[i] = a[min];
+        a[min] = temp;
     }
 
     printf("\nArray Elements After Sorting: \n");
     for(int i=0; i<n; i++){
-        printf(" %d", arr[i]);
+        printf(" %d", a[i]);
     }
 }
 
@@ -34,19 +30,19 @@ int main()
     printf("Enter Array Size: ");
     scanf("%d", &n);
 
-    int arr[n];
+    int a[n];
     printf("Enter Array Elements: \n");
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &arr[i]);
+        scanf("%d", &a[i]);
     }
 
     printf("Array Elements Before Sorting: \n");
     for (int j = 0; j < n; j++)
     {
-        printf(" %d", arr[j]);
+        printf(" %d", a[j]);
     }
 
-    Selection_Sort(arr, n);
+    Selection_Sort(a, n);
     return 0;
 }
