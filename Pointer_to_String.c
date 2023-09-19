@@ -1,10 +1,11 @@
 #include<stdio.h>
 #define n 100
 
+char str[n];
+
 int main(){
 
     // Pointer to String Concept...
-    char str[n];
     printf("Enter a String: ");
     gets(str);
 
@@ -12,8 +13,9 @@ int main(){
     char *ptr = str;
     
     //Display String Using Pointer...
-    for(int i=0; *(str + i) != '\0'; i++){
-        printf("%c", *(str + i));
+    while(*ptr != '\0'){
+        printf("%c", *(ptr));
+        ptr = ptr + 1;
     }
     return 0;
 }
