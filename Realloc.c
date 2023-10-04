@@ -20,7 +20,7 @@ int main()
     {
         for (int i = 0; i < n; i++)
         {
-            printf("Enter Elements: ");
+            printf("Enter Element: ");
             scanf("%d", ptr + i);
         }
 
@@ -28,15 +28,22 @@ int main()
         scanf("%d", &m);
 
         ptr = (int *)realloc(ptr, m * sizeof(int));
-        for (int i = n; i < m; i++)
+        if (ptr == NULL)
         {
-            printf("Enter Elements: ");
-            scanf("%d", ptr + i);
+            printf("Memory Allocation Failed...");
         }
-
-        for (int j = 0; j < m; j++)
+        else
         {
-            printf("%d \t", *(ptr + j));
+            for (int i = n; i < m; i++)
+            {
+                printf("Enter Element: ");
+                scanf("%d", ptr + i);
+            }
+
+            for (int j = 0; j < m; j++)
+            {
+                printf("%d \t", *(ptr + j));
+            }
         }
 
         free(ptr);
